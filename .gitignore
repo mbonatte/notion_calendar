@@ -1,0 +1,9 @@
+env
+__pycache__
+
+events_saved.json
+google_calendars.json
+google_credentials.json
+google_token.pickle
+notion_credentials.json
+notion_data.json
