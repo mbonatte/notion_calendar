@@ -11,19 +11,20 @@ def filter_by_tags(events, tags):
                 break
     return data_filtered
 
-def filter_by_time(events, time=datetime.datetime.now()):
+def filter_by_time(events, time=datetime.date.today()):
     data_filtered = []
     for event in events:
         try:
-            event_date = datetime.datetime.strptime(event['start'], '%Y-%m-%dT%H:%M:%S.%f0%z')
+            event_date = datetime.datetime.strptime(event['start'],
+                                                    '%Y-%m-%dT%H:%M:%S.%f0%z')
         except ValueError:
             pass
         try:
-            event_date = datetime.datetime.strptime(event['start'], '%Y-%m-%d')
+            event_date = datetime.datetime.strptime(event['start'],
+                                                    '%Y-%m-%d')
         except ValueError:
             pass
-        print(event_date,'   --   ' ,time)
-        if not event_date < time:
+        if time <= event_date.date():
             data_filtered.append(event)
     return data_filtered
 
