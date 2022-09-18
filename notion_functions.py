@@ -26,6 +26,7 @@ def get_clean_data_from_notion(token, database_id):
                      'end': item['properties']['Date']['date']['end'],
                      'url': item['properties']['URL']['url'],
                      'description': '',
+                     'last_edited_time': item['last_edited_time'],
                      }
         except IndexError:
             break
